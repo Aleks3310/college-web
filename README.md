@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Веб-приложение для колледжа
 
-## Getting Started
+## Описание
 
-First, run the development server:
+Это веб-приложение для колледжа, которое предоставляет функциональность для аутентификации, 
+отображения информации о колледже и возможности переключать светлую/тёмную тему.
+
+### **Особенности:**
+- **Система авторизации**: Пользователь может войти в систему с логином и паролем, который сохраняется в localStorage.
+- **Переключение тем**: Возможность переключать между светлой и тёмной темой.
+- **Адаптивный интерфейс**: Приложение адаптируется под различные экраны.
+
+- **Используемые технологии**:
+  - **Next.js** для серверного рендеринга и маршрутизации.
+  - **Tailwind CSS** для стилизации.
+  - **React Context** для управления состоянием авторизации и темы.
+
+## **Установка и запуск проекта**
+### 1. Клонирование репозитория
+
+```bash
+git clone https://github.com/Aleks3310/WEB.git
+cd college-web
+```
+
+### 2. Установка зависимостей
+
+Убедитесь, что у вас установлен **Node.js** (рекомендуемая версия 16.x или выше), затем выполните:
+
+```bash
+npm install
+```
+
+или, если вы используете **yarn**:
+
+```bash
+yarn install
+```
+
+### 3. Запуск проекта
+
+После того как все зависимости установлены, запустите проект:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+или
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Теперь приложение доступно по адресу [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## **Структура проекта**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ниже представлена стурктура проекта:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+college-web/
+├── app/
+│   ├── login/
+│   ├── layout.jsx
+│   ├── page.jsx
+│   ├── globals.css
+│   └── Providers.jsx
+├── components/
+│   ├── AuthForm.jsx
+│   ├── Button.jsx
+│   ├── Footer.jsx
+│   ├── Header.jsx
+│   ├── InputField.jsx
+│   └── SwitchTheme.jsx
+├── tailwind.config.js
+├── postcss.config.js
+├── package.json
+└── README.md
+```
 
-## Deploy on Vercel
+## **Работа авторизации и темы**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **Авторизация**
+- **Данные вносятся в AuthForm.jsx**
+- **Сохраняются в localStorage**
+- **Проверка происходит через Providers.jsx**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **Тема**
+- **Используется React Context и класс dark**
+- **Сохранение в localStorage**
+- **Свитч SwitchTheme изменяет класс на document.documentElement**
+
+
+## **Стили**
+- **Кастомные шрифты и стили прокрутки добавлены в globals.css**
+- **Поддержка Figma-дизайна: отступы, закругления, размеры, анимации и т.д.**
+
+## **Конфигурация Tailwind**
+
+```
+module.exports = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: '#6200EE',
+        'primary-dark': '#BB86FC',
+        secondary: '#03DAC6',
+        'secondary-dark': '#03DAC6',
+      },
+    },
+  },
+  plugins: [],
+}
+```
