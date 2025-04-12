@@ -19,7 +19,7 @@
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/Aleks3310/WEB.git
+git clone https://github.com/Aleks3310/college-web.git
 cd college-web
 ```
 
